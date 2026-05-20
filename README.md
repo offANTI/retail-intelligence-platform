@@ -2,7 +2,7 @@
 
 End-to-end retail analytics platform built with Python, Pandas, SQL, SQLite and Power BI.
 
-The project includes ETL pipelines, data cleaning & validation, analytical SQL views and an interactive BI dashboard for revenue, profitability and customer behavior analysis.
+This project demonstrates a production-style analytics workflow: synthetic retail data generation, data validation, data cleaning, SQLite loading, SQL analytics views and an interactive Power BI dashboard for business reporting.
 
 ---
 
@@ -12,18 +12,35 @@ The project includes ETL pipelines, data cleaning & validation, analytical SQL v
 
 ---
 
+## Business Problem
+
+Retail and e-commerce teams need reliable reporting to monitor revenue, customer behavior, profitability and operational risks.
+
+This project simulates a retail analytics platform that helps answer key business questions:
+
+- How is revenue changing over time?
+- Which product categories generate the most revenue and margin?
+- Which customer segments contribute the most sales?
+- Which categories have the highest return rate?
+- What are the main executive-level business insights?
+
+---
+
 ## Features
 
 - Automated ETL pipeline
 - Synthetic retail data generation
-- Data cleaning and validation
-- SQLite database integration
+- Data validation layer
+- Data cleaning layer with Pandas
+- SQLite database loading
 - Analytical SQL views
 - KPI monitoring
 - Revenue trend analysis
 - Customer segmentation
 - Category profitability analysis
 - Return rate analytics
+- Cohort retention analysis
+- RFM customer analysis
 - Interactive Power BI dashboard
 - Executive business insights panel
 - Dynamic filtering system
@@ -40,6 +57,28 @@ The project includes ETL pipelines, data cleaning & validation, analytical SQL v
 | Analytics | SQL |
 | BI & Visualization | Power BI |
 | Version Control | Git & GitHub |
+
+---
+
+## Project Architecture
+
+```text
+Synthetic Retail Data
+        ↓
+Raw CSV Layer
+        ↓
+Validation Layer
+        ↓
+Cleaning Layer
+        ↓
+Processed CSV Layer
+        ↓
+SQLite Database
+        ↓
+SQL Analytics Views
+        ↓
+Power BI Dashboard
+```
 
 ---
 
@@ -79,45 +118,69 @@ retail-intelligence-platform/
 
 ---
 
-## Dashboard Overview
-
-The Power BI dashboard provides:
-
-- Revenue KPI monitoring
-- Monthly revenue trend analysis
-- Customer segmentation analytics
-- Category profitability analysis
-- Return rate monitoring
-- Interactive filtering system
-- Executive business insights
-
----
-
 ## Data Pipeline
 
 The analytics pipeline includes:
 
-1. Synthetic retail data generation
-2. Data cleaning with Pandas
-3. Data validation
-4. SQLite database loading
-5. SQL analytics view creation
-6. Power BI dashboard visualization
+1. Generate synthetic retail data
+2. Validate raw CSV files
+3. Clean raw data with Pandas
+4. Save cleaned data into the processed layer
+5. Load processed data into SQLite
+6. Create SQL analytics views
+7. Visualize business KPIs in Power BI
 
 ---
 
-## Example Analytics
+## SQL Analytics Layer
 
-The platform supports analytics such as:
+The project includes SQL views and analytical queries for:
 
-- Revenue trends
-- Average order value (AOV)
-- Return rate analysis
-- Customer segmentation
-- Gross margin analysis
-- Category performance
+- Monthly revenue tracking
+- Category revenue and gross margin
+- Customer segment revenue
+- Return rate by category
 - Cohort retention analysis
-- RFM analysis
+- RFM customer segmentation
+- KPI monitoring
+
+The Power BI dashboard is built on top of SQL analytics views instead of raw transactional tables.
+
+---
+
+## Power BI Dashboard
+
+The interactive Power BI dashboard includes:
+
+- Total Revenue KPI
+- Total Orders KPI
+- Average Order Value KPI
+- Return Rate KPI
+- Monthly revenue trend
+- Category revenue and profitability
+- Revenue by customer segment
+- Return rate by category
+- Category filter
+- Customer segment filter
+- Date range filter
+- Executive insights section
+
+Dashboard file:
+
+```text
+powerbi/retail_dashboard.pbix
+```
+
+---
+
+## Example Business Insights
+
+Example insights from the dashboard:
+
+- Revenue shows a recovery trend in late 2024.
+- Electronics is the strongest category by revenue and gross margin.
+- Consumer customers generate the highest revenue among customer segments.
+- Return rate remains stable around 8%, indicating controlled operational risk.
 
 ---
 
@@ -135,45 +198,60 @@ Run the full pipeline:
 python main.py --all
 ```
 
-This will:
+This command will:
 
 1. Generate synthetic retail data
 2. Validate raw data
-3. Clean data
+3. Clean raw data
 4. Load processed data into SQLite
 5. Create SQL analytics views
 
 ---
 
-## Power BI Dashboard
+## Run Individual Steps
 
-The Power BI dashboard includes:
+Generate data:
 
-- KPI cards
-- Revenue trend monitoring
-- Customer segmentation visuals
-- Category profitability analysis
-- Return rate tracking
-- Interactive slicers
-- Executive insights section
+```bash
+python main.py --generate
+```
 
-Dashboard file:
+Validate data:
 
-```text
-powerbi/retail_dashboard.pbix
+```bash
+python main.py --validate
+```
+
+Clean data:
+
+```bash
+python main.py --clean
+```
+
+Load data into SQLite:
+
+```bash
+python main.py --load
+```
+
+Create analytics views:
+
+```bash
+python main.py --views
 ```
 
 ---
 
 ## Future Improvements
 
-- Advanced DAX measures
-- Automated dashboard refresh
-- Real-time analytics
-- Docker containerization
-- PostgreSQL integration
-- CI/CD automation
-- Cloud deployment
+- Add pytest unit tests
+- Add GitHub Actions CI pipeline
+- Add advanced DAX measures
+- Add automated dashboard refresh
+- Add Docker containerization
+- Add PostgreSQL support
+- Add cloud deployment
+- Add real-world retail dataset integration
 
 ---
 
