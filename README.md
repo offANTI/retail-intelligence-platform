@@ -8,7 +8,7 @@ The project includes ETL pipelines, data cleaning & validation, analytical SQL v
 
 ## Dashboard Preview
 
-![Dashboard Preview](images/dashboard(1).jpg)
+![Dashboard Preview](images/dashboard.jpg)
 
 ---
 
