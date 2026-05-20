@@ -4,3 +4,4 @@ __pycache__/
 *.db
 data/raw/
 data/processed/
+retail_intelligence.db
