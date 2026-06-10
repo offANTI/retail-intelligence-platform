@@ -1,2 +1,4 @@
 pandas
 numpy
+ruff>=0.4.0
+pre-commit>=3.0.0

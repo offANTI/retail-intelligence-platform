@@ -23,7 +23,6 @@ def run_pipeline(
     load_data: bool = False,
     create_views: bool = False,
 ) -> None:
-
     start_time = time.time()
 
     logger.info("Starting Retail Intelligence Platform pipeline.")
@@ -57,9 +56,7 @@ def run_pipeline(
 
 
 def main() -> None:
-    parser = argparse.ArgumentParser(
-        description="Retail Intelligence Platform CLI"
-    )
+    parser = argparse.ArgumentParser(description="Retail Intelligence Platform CLI")
 
     parser.add_argument(
         "--generate",

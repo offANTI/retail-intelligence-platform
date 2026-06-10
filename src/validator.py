@@ -68,9 +68,7 @@ def validate_required_columns(table_name: str, df: pd.DataFrame) -> None:
     missing_columns = required_columns - set(df.columns)
 
     if missing_columns:
-        raise ValueError(
-            f"Missing columns in {table_name}: {missing_columns}"
-        )
+        raise ValueError(f"Missing columns in {table_name}: {missing_columns}")
 
 
 def validate_not_empty(table_name: str, df: pd.DataFrame) -> None:

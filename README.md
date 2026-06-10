@@ -57,7 +57,7 @@ This project simulates a retail analytics platform that helps answer key busines
 | Analytics | SQL |
 | BI & Visualization | Power BI |
 | Version Control | Git & GitHub |
-
+| Code Quality     | Ruff        |
 ---
 
 ## Project Architecture
